@@ -3,10 +3,11 @@ package study.springbasic.core.member;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
+import study.springbasic.core.AppConfig;
 
 class MemberServiceTest {
 
-	MemberService memberService = new MemberServiceImpl();
+	MemberService memberService = new AppConfig().memberService();
 
 	@Test
 	void joinTest() {
