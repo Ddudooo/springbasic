@@ -1,0 +1,5 @@
+spring:
+  main:
+    # 수동 빈 등록, 자동 빈 등록 오류시 스프링 부트 에러
+    # 수동설정 빈을 우선하여 오버라이딩할시 설정
+    allow-bean-definition-overriding: true
