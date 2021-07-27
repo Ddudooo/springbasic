@@ -2,6 +2,7 @@ package study.springbasic.core.web;
 
 import javax.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -14,11 +15,12 @@ import study.springbasic.core.common.MyLogger;
 public class LogDemoController {
 
 	private final LogDemoService logDemoService;
-	private final MyLogger logger;
+	private final ObjectProvider<MyLogger> loggerProvider;
 
 	@ResponseBody
 	@RequestMapping("log-demo")
 	public ResponseEntity<String> logDemo(HttpServletRequest request) {
+		MyLogger logger = loggerProvider.getObject();
 		String requestURL = request.getRequestURL().toString();
 		logger.setRequestUrl(requestURL);
 
